@@ -1,18 +1,10 @@
-package com.example.helloworld;
 import com.github.cschen1205.ess.engine.*;
 
 import java.util.Scanner;
 import java.util.Vector;
 
-public class HelloWorld {
-    public static void main(String[] args){
-        System.out.println("Mama eu");
-        testForwardChain();
-//        testBackwardChain();
-        demoBackwardChainWithNullMemory();
-    }
-
-    private static RuleInferenceEngine getInferenceEngine()
+public class RuleEngine {
+    private RuleInferenceEngine getInferenceEngine()
     {
         RuleInferenceEngine rie=new KieRuleInferenceEngine();
 
@@ -79,7 +71,7 @@ public class HelloWorld {
         return rie;
     }
 
-    public static void testForwardChain()
+    public void testForwardChain()
     {
         RuleInferenceEngine rie=getInferenceEngine();
         rie.addFact(new EqualsClause("num_wheels", "4"));
@@ -98,7 +90,7 @@ public class HelloWorld {
         System.out.println();
     }
 
-    public static void testBackwardChain()
+    public void testBackwardChain()
     {
         RuleInferenceEngine rie=getInferenceEngine();
         rie.addFact(new EqualsClause("num_wheels", "4"));
@@ -115,12 +107,12 @@ public class HelloWorld {
         System.out.println("Conclusion: "+conclusion);
     }
 
-    public static void demoBackwardChainWithNullMemory()
+    public void demoBackwardChainWithNullMemory()
     {
         RuleInferenceEngine rie=getInferenceEngine();
 
         System.out.println("Infer with All Facts Cleared:");
-        //rie.clearFacts();
+        rie.clearFacts();
 
         Vector<Clause> unproved_conditions= new Vector<>();
 
@@ -147,9 +139,11 @@ public class HelloWorld {
         System.out.println(rie.getFacts());
     }
 
-    private static String showInputDialog(String question) {
+    private String showInputDialog(String question) {
         Scanner scanner = new Scanner(System.in);
         System.out.print(question + " ");
         return scanner.next();
     }
+
+
 }
