@@ -1,91 +1,88 @@
 package com.example.helloworld;
 import com.github.cschen1205.ess.engine.*;
-
-import java.util.Scanner;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import java.io.IOException;
 import java.util.Vector;
 
 public class HelloWorld {
-    public static void main(String[] args){
-        System.out.println("Mama eu");
+    public static void main(String[] args) throws IOException, ParseException {
         testForwardChain();
 //        testBackwardChain();
-        demoBackwardChainWithNullMemory();
     }
 
-    private static RuleInferenceEngine getInferenceEngine()
-    {
-        RuleInferenceEngine rie=new KieRuleInferenceEngine();
+    private static RuleInferenceEngine getTireInferenceEngine() throws IOException, ParseException {
+//        JSONArray array = ReadJson.read_json("src/main/dataknowledge/freio_database.json");
+//        System.out.println(array);
+//
+//        for(int i = 0; i< array.size(); i++){
+//            JSONObject freio = (JSONObject) array.get(i);
+//            JSONObject atributos = (JSONObject) freio.get("freio");
+//
+//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
+//            Rule rule = new Rule((String) atributos.get("nome"));
+//
+//            rule.addAntecedent(new EqualsClause("modelo", (String) atributos.get("modelo")));
+//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+//            rie.addRule(rule);
+//        }
 
-        Rule rule=new Rule("Bicycle");
-        rule.addAntecedent(new EqualsClause("vehicleType", "cycle"));
-        rule.addAntecedent(new EqualsClause("num_wheels", "2"));
-        rule.addAntecedent(new EqualsClause("motor", "no"));
-        rule.setConsequent(new EqualsClause("vehicle", "Bicycle"));
-        rie.addRule(rule);
+        JSONArray array = ReadJson.read_json("src/main/dataknowledge/pneu_database.json");
+        RuleInferenceEngine rie = new KieRuleInferenceEngine();
 
-        rule=new Rule("Tricycle");
-        rule.addAntecedent(new EqualsClause("vehicleType", "cycle"));
-        rule.addAntecedent(new EqualsClause("num_wheels", "3"));
-        rule.addAntecedent(new EqualsClause("motor", "no"));
-        rule.setConsequent(new EqualsClause("vehicle", "Tricycle"));
-        rie.addRule(rule);
+        for(int i = 0; i< array.size(); i++){
+            JSONObject pneu = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) pneu.get("pneu");
 
-        rule=new Rule("Motorcycle");
-        rule.addAntecedent(new EqualsClause("vehicleType", "cycle"));
-        rule.addAntecedent(new EqualsClause("num_wheels", "2"));
-        rule.addAntecedent(new EqualsClause("motor", "yes"));
-        rule.setConsequent(new EqualsClause("vehicle", "Motorcycle"));
-        rie.addRule(rule);
 
-        rule=new Rule("SportsCar");
-        rule.addAntecedent(new EqualsClause("vehicleType", "automobile"));
-        rule.addAntecedent(new EqualsClause("size", "medium"));
-        rule.addAntecedent(new EqualsClause("num_doors", "2"));
-        rule.setConsequent(new EqualsClause("vehicle", "Sports_Car"));
-        rie.addRule(rule);
+            Rule rule = new Rule((String) atributos.get("nome"));
 
-        rule=new Rule("Sedan");
-        rule.addAntecedent(new EqualsClause("vehicleType", "automobile"));
-        rule.addAntecedent(new EqualsClause("size", "medium"));
-        rule.addAntecedent(new EqualsClause("num_doors", "4"));
-        rule.setConsequent(new EqualsClause("vehicle", "Sedan"));
-        rie.addRule(rule);
+            rule.addAntecedent(new EqualsClause("categoria", (String) atributos.get("categoria")));
+            rule.addAntecedent(new EqualsClause("largura", (String) atributos.get("largura")));
+            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+            rie.addRule(rule);
+        }
 
-        rule=new Rule("MiniVan");
-        rule.addAntecedent(new EqualsClause("vehicleType", "automobile"));
-        rule.addAntecedent(new EqualsClause("size", "medium"));
-        rule.addAntecedent(new EqualsClause("num_doors", "3"));
-        rule.setConsequent(new EqualsClause("vehicle", "MiniVan"));
-        rie.addRule(rule);
-
-        rule=new Rule("SUV");
-        rule.addAntecedent(new EqualsClause("vehicleType", "automobile"));
-        rule.addAntecedent(new EqualsClause("size", "large"));
-        rule.addAntecedent(new EqualsClause("num_doors", "4"));
-        rule.setConsequent(new EqualsClause("vehicle", "SUV"));
-        rie.addRule(rule);
-
-        rule=new Rule("Cycle");
-        rule.addAntecedent(new LessClause("num_wheels", "4"));
-        rule.setConsequent(new EqualsClause("vehicleType", "cycle"));
-        rie.addRule(rule);
-
-        rule=new Rule("Automobile");
-        rule.addAntecedent(new EqualsClause("num_wheels", "4"));
-        rule.addAntecedent(new EqualsClause("motor", "yes"));
-        rule.setConsequent(new EqualsClause("vehicleType", "automobile"));
-        rie.addRule(rule);
-
+//        array = ReadJson.read_json("src/main/dataknowledge/quadro_database.json");
+//
+//
+//        for(int i = 0; i< array.size(); i++){
+//            JSONObject quadro = (JSONObject) array.get(i);
+//            JSONObject atributos = (JSONObject) quadro.get("quadro");
+//
+//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
+//            Rule rule = new Rule((String) atributos.get("nome"));
+//
+//            rule.addAntecedent(new EqualsClause("categoria", (String) atributos.get("categoria")));
+//            rule.addAntecedent(new EqualsClause("desenho", (String) atributos.get("desenho")));
+//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+//            rie.addRule(rule);
+//        }
+//
+//        array = ReadJson.read_json("src/main/dataknowledge/relacao_database.json");
+//
+//
+//        for(int i = 0; i< array.size(); i++){
+//            JSONObject relacao = (JSONObject) array.get(i);
+//            JSONObject atributos = (JSONObject) relacao.get("relacao");
+//
+//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
+//            Rule rule = new Rule((String) atributos.get("nome"));
+//
+//            rule.addAntecedent(new EqualsClause("coroas", (String) atributos.get("coroas")));
+//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+//            rie.addRule(rule);
+//        }
         return rie;
     }
 
-    public static void testForwardChain()
-    {
-        RuleInferenceEngine rie=getInferenceEngine();
-        rie.addFact(new EqualsClause("num_wheels", "4"));
-        rie.addFact(new EqualsClause("motor", "yes"));
-        rie.addFact(new EqualsClause("num_doors", "3"));
-        rie.addFact(new EqualsClause("size", "medium"));
+    public static void testForwardChain() throws IOException, ParseException {
+        RuleInferenceEngine rie=getTireInferenceEngine();
+
+        rie.addFact(new EqualsClause("categoria", "slick"));
+//        rie.addFact(new EqualsClause("largura", "2.2"));
+//        rie.addFact(new EqualsClause("nome", "pneu-misto"));
 
         System.out.println("before inference");
         System.out.println(rie.getFacts());
@@ -98,58 +95,18 @@ public class HelloWorld {
         System.out.println();
     }
 
-    public static void testBackwardChain()
-    {
-        RuleInferenceEngine rie=getInferenceEngine();
-        rie.addFact(new EqualsClause("num_wheels", "4"));
-        rie.addFact(new EqualsClause("motor", "yes"));
-        rie.addFact(new EqualsClause("num_doors", "3"));
-        rie.addFact(new EqualsClause("size", "medium"));
+    public static void testBackwardChain() throws IOException, ParseException {
+        RuleInferenceEngine rie=getTireInferenceEngine();
+        rie.addFact(new EqualsClause("categoria", "slick"));
+        rie.addFact(new EqualsClause("largura", "1.6"));
+//        rie.addFact(new EqualsClause("nome", "pneu-misto"));
 
-        System.out.println("Infer: vehicle");
+        System.out.println("Infer: Bike");
 
         Vector<Clause> unproved_conditions= new Vector<>();
 
         Clause conclusion=rie.infer("vehicle", unproved_conditions);
 
         System.out.println("Conclusion: "+conclusion);
-    }
-
-    public static void demoBackwardChainWithNullMemory()
-    {
-        RuleInferenceEngine rie=getInferenceEngine();
-
-        System.out.println("Infer with All Facts Cleared:");
-        //rie.clearFacts();
-
-        Vector<Clause> unproved_conditions= new Vector<>();
-
-        Clause conclusion=null;
-        while(conclusion==null)
-        {
-            conclusion=rie.infer("vehicle", unproved_conditions);
-            if(conclusion==null)
-            {
-                if(unproved_conditions.size()==0)
-                {
-                    break;
-                }
-                Clause c=unproved_conditions.get(0);
-                System.out.println("ask: "+c+"?");
-                unproved_conditions.clear();
-                String value=showInputDialog("What is "+c.getVariable()+"?");
-                rie.addFact(new EqualsClause(c.getVariable(), value));
-            }
-        }
-
-        System.out.println("Conclusion: "+conclusion);
-        System.out.println("Memory: ");
-        System.out.println(rie.getFacts());
-    }
-
-    private static String showInputDialog(String question) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print(question + " ");
-        return scanner.next();
     }
 }

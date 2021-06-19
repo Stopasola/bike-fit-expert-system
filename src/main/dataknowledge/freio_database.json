@@ -1,0 +1,20 @@
+[
+  {
+    "freio": {
+      "modelo": "v-brake",
+      "nome": "freio-v-brake"
+    }
+  },
+  {
+    "freio": {
+      "modelo": "disco-mecanico",
+      "nome": "freio-disco-mecanico"
+    }
+  },
+  {
+    "freio": {
+      "modelo": "disco-hidraulico",
+      "nome": "freio-disco-mecanico"
+    }
+  }
+]

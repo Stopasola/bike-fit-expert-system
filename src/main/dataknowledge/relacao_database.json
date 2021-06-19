@@ -1,0 +1,38 @@
+[
+  {
+    "relacao": {
+      "nome": "relacao-3x7",
+      "coroas": "3x7"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-3x8",
+      "coroas": "3x8"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-3x9",
+      "coroas": "3x9"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x10",
+      "coroas": "2x10"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11",
+      "coroas": "1x11"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12",
+      "coroas": "1x12"
+    }
+  }
+]

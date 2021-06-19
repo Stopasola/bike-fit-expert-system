@@ -1,0 +1,44 @@
+[
+  {
+    "quadro": {
+      "nome": "quadro-feminino-pequeno",
+      "tamanho": "15",
+      "desenho": "F"
+    }
+  },
+  {
+    "quadro": {
+      "nome": "quadro-feminino-medio",
+      "categoria": "17",
+      "desenho": "F"
+    }
+  },
+  {
+    "quadro": {
+      "nome": "quadro-feminino-grande",
+      "categoria": "19",
+      "desenho": "F"
+    }
+  },
+  {
+    "quadro": {
+      "nome": "quadro-masculino-pequeno",
+      "tamanho": "15",
+      "desenho": "M"
+    }
+  },
+  {
+    "quadro": {
+      "nome": "quadro-masculino-medio",
+      "categoria": "17",
+      "desenho": "M"
+    }
+  },
+  {
+    "quadro": {
+      "nome": "quadro-masculino-grande",
+      "categoria": "19",
+      "desenho": "M"
+    }
+  }
+]
