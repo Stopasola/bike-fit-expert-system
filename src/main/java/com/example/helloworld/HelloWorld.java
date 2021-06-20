@@ -4,7 +4,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Vector;
+
+import static javax.swing.JOptionPane.showInputDialog;
 
 public class HelloWorld {
     public static void main(String[] args) throws IOException, ParseException {
@@ -91,10 +94,10 @@ public class HelloWorld {
     public static void testForwardChain() throws IOException, ParseException {
         //RuleInferenceEngine rie = getTireInferenceEngine();
         //RuleInferenceEngine rie = getBreakInferenceEngine();
-        //RuleInferenceEngine rie = getFrameInferenceEngine();
-        RuleInferenceEngine rie = getRelacaoInferenceEngine();
+        RuleInferenceEngine rie = getFrameInferenceEngine();
+        //RuleInferenceEngine rie = getRelacaoInferenceEngine();
 
-        rie.addFact(new EqualsClause("coroas", "3x7"));
+        //rie.addFact(new EqualsClause("coroas", "3x7"));
 
 //Quadro
 //        rie.addFact(new EqualsClause("categoria", "15"));
@@ -108,6 +111,54 @@ public class HelloWorld {
 //        rie.addFact(new EqualsClause("largura", "1.5"));
 //        rie.addFact(new EqualsClause("nome", "pneu-misto"));
 
+
+//        System.out.println("before inference");
+//        System.out.println(rie.getFacts());
+//        System.out.println();
+//
+//        rie.infer(); //forward chain
+//
+//        System.out.println("after inference");
+//        System.out.println(rie.getFacts());
+//        System.out.println();
+
+
+        Scanner s = new Scanner(System.in);
+        System.out.println("Qual é seu genero?");
+        String value1 = s.nextLine();
+
+        System.out.println("Qual é sua altura?");
+        String val = s.nextLine();
+        Float value2 = Float.parseFloat(val);
+
+        if(value1.equals("F")){
+            System.out.println("Aqui1");
+            if( value2 <= 1.60){
+                rie.addFact(new EqualsClause("categoria", "15"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            } else if(value2 >= 1.60 && value2 <= 1.75){
+                System.out.println("Aqui");
+                rie.addFact(new EqualsClause("categoria", "17"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            } else if(value2 > 1.75){
+                rie.addFact(new EqualsClause("categoria", "19"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            }
+        }
+        else if(value1.equals("M")){
+            System.out.println("Aqui3");
+            if( value2 <= 1.60){
+                rie.addFact(new EqualsClause("categoria", "15"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            } else if(value2 >= 1.60 && value2 <= 1.75){
+                rie.addFact(new EqualsClause("categoria", "17"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            } else if(value2 > 1.75){
+                rie.addFact(new EqualsClause("categoria", "19"));
+                rie.addFact(new EqualsClause("desenho", value1));
+            }
+        }
+
         System.out.println("before inference");
         System.out.println(rie.getFacts());
         System.out.println();
@@ -117,6 +168,10 @@ public class HelloWorld {
         System.out.println("after inference");
         System.out.println(rie.getFacts());
         System.out.println();
+
+        // Apenas o resultado da inferência
+        System.out.println(rie.getFacts().get(rie.getFacts().size()-1));
+
     }
 
     /*public static void testBackwardChain() throws IOException, ParseException {
@@ -133,4 +188,6 @@ public class HelloWorld {
 
         System.out.println("Conclusion: "+conclusion);
     }*/
+
+
 }
