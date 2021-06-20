@@ -1,0 +1,38 @@
+[
+  {
+    "aro": {
+      "nome": "Aro 26",
+      "utilizacao": "passeio cidade"
+    }
+  },
+  {
+    "aro": {
+      "nome": "Aro 26",
+      "utilizacao": "trabalho"
+    }
+  },
+  {
+    "aro": {
+      "nome": "Aro 29",
+      "utilizacao": "longas viagens"
+    }
+  },
+  {
+    "aro": {
+      "nome": "Aro 29",
+      "utilizacao": "estrada de chao/cidade"
+    }
+  },
+  {
+    "aro": {
+      "nome": "Aro 29",
+      "utilizacao": "estrada de chao/trilha"
+    }
+  },
+  {
+    "aro": {
+      "nome": "Aro 29",
+      "utilizacao": "ciclismo de estrada"
+    }
+  }
+]
