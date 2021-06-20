@@ -8,9 +8,23 @@
   },
   {
     "pneu": {
+      "nome": "pneu-slick",
+      "categoria": "slick",
+      "largura": "1.7"
+    }
+  },
+  {
+    "pneu": {
       "nome": "pneu-misto",
       "categoria": "misto",
       "largura": "2.2"
+    }
+  },
+  {
+    "pneu": {
+      "nome": "pneu-misto",
+      "categoria": "misto",
+      "largura": "2.0"
     }
   },
   {
