@@ -1,0 +1,39 @@
+[
+  {
+    "selim": {
+      "categoria": "Passeio cidade",
+      "nome": "selim conforto largo bastante preenchimento"
+    }
+  },
+  {
+    "selim": {
+      "categoria": "Longas Viagens",
+      "nome": "selim conforto médio bastante preenchimento"
+    }
+  },
+  {
+    "selim": {
+      "categoria": "Trabalho",
+      "nome": "selim conforto largo bastante preenchimento"
+    }
+  },
+  {
+    "selim": {
+      "categoria": "Estrada de chão/cidade",
+      "nome": "selim medio vazado"
+    }
+  },
+  {
+    "selim": {
+    "categoria": "Estrada de chão/Trilha",
+    "nome": "selim medio vazado"
+    }
+  },
+  {
+    "selim": {
+      "categoria": "Ciclismo de estrada",
+      "nome": "selim estreito vazado"
+    }
+  }
+
+]

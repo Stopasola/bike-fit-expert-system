@@ -5,9 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Vector;
-
-import static javax.swing.JOptionPane.showInputDialog;
 
 public class HelloWorld {
     public static void main(String[] args) throws IOException, ParseException {
@@ -90,6 +87,7 @@ public class HelloWorld {
         }
         return rie;
     }
+
 
     public static void testForwardChain() throws IOException, ParseException {
         //RuleInferenceEngine rie = getTireInferenceEngine();
