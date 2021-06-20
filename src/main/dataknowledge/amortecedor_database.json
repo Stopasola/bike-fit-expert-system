@@ -1,0 +1,44 @@
+[
+  {
+    "amortecedor": {
+      "nome": "mola",
+      "categoria": "entrada",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "amortecedor": {
+      "nome": "mola",
+      "categoria": "entrada",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "amortecedor": {
+      "nome": "hidraulica",
+      "categoria": "medio",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "amortecedor": {
+      "nome": "hidraulica",
+      "categoria": "medio",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "amortecedor": {
+      "nome": "ar",
+      "categoria": "premium",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "amortecedor": {
+      "nome": "ar",
+      "categoria": "premium",
+      "utilizacao": "trilha"
+    }
+  }
+]
