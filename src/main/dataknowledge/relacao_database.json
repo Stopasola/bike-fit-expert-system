@@ -1,38 +1,170 @@
 [
   {
     "relacao": {
-      "nome": "relacao-3x7",
-      "coroas": "3x7"
+      "nome": "relacao-3x7 - shimano tourney",
+      "coroas": "3x7",
+      "valor": "entrada",
+      "utilizacao": "passeio cidade"
     }
   },
   {
     "relacao": {
-      "nome": "relacao-3x8",
-      "coroas": "3x8"
+      "nome": "relacao-3x7 - shimano tourney",
+      "coroas": "3x7",
+      "valor": "entrada",
+      "utilizacao": "trabalho"
     }
   },
   {
     "relacao": {
-      "nome": "relacao-3x9",
-      "coroas": "3x9"
+      "nome": "relacao-3x8 - shimano altus",
+      "coroas": "3x8",
+      "valor": "media",
+      "utilizacao": "passeio cidade"
     }
   },
   {
     "relacao": {
-      "nome": "relacao-2x10",
-      "coroas": "2x10"
+      "nome": "relacao-3x8 - shimano altus",
+      "coroas": "3x8",
+      "valor": "media",
+      "utilizacao": "trabalho"
     }
   },
   {
     "relacao": {
-      "nome": "relacao-1x11",
-      "coroas": "1x11"
+      "nome": "relacao-3x9 - shimano alivio",
+      "coroas": "3x9",
+      "valor": "premium",
+      "utilizacao": "passeio cidade"
     }
   },
   {
     "relacao": {
-      "nome": "relacao-1x12",
-      "coroas": "1x12"
+      "nome": "relacao-3x9 - shimano alivio",
+      "coroas": "3x9",
+      "valor": "premium",
+      "utilizacao": "trabalho"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-3x8 - shimano altus",
+      "coroas": "3x8",
+      "valor": "entrada",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-3x8 - shimano altus",
+      "coroas": "3x8",
+      "valor": "entrada",
+      "utilizacao": "cidade"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-3x8 - shimano altus",
+      "coroas": "3x8",
+      "valor": "entrada",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "media",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "media",
+      "utilizacao": "cidade"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "media",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano deore",
+      "coroas": "1x12",
+      "valor": "premium",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano deore",
+      "coroas": "1x12",
+      "valor": "premium",
+      "utilizacao": "cidade"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano deore",
+      "coroas": "1x12",
+      "valor": "premium",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x8 - shimano claris",
+      "coroas": "1x8",
+      "valor": "entrada",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x8 - shimano claris",
+      "coroas": "1x8",
+      "valor": "entrada",
+      "utilizacao": "viagem"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x10 - shimano tiagra",
+      "coroas": "1x10",
+      "valor": "media",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x10 - shimano tiagra",
+      "coroas": "1x10",
+      "valor": "media",
+      "utilizacao": "viagem"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Ultegra",
+      "coroas": "1x11",
+      "valor": "premium",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Ultegra",
+      "coroas": "1x11",
+      "valor": "premium",
+      "utilizacao": "viagem"
     }
   }
 ]
