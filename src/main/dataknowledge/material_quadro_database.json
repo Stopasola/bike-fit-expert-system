@@ -1,0 +1,32 @@
+[
+  {
+    "material": {
+      "nome": "aco",
+      "valor": "entrada"
+    }
+  },
+  {
+    "material": {
+      "nome": "aluminio-simples",
+      "valor": "medio"
+    }
+  },
+  {
+    "material": {
+      "nome": "aluminio-tripla-expessura",
+      "valor": "premium"
+    }
+  },
+  {
+    "material": {
+      "nome": "aluminio-quadrupla-expessura",
+      "valor": "competicao entrada"
+    }
+  },
+  {
+    "material": {
+      "nome": "carbono",
+      "valor": "competicao media"
+    }
+  }
+]
