@@ -2,7 +2,7 @@
   {
     "quadro": {
       "nome": "quadro-feminino-pequeno",
-      "tamanho": "15",
+      "categoria": "15",
       "desenho": "F"
     }
   },
@@ -23,7 +23,7 @@
   {
     "quadro": {
       "nome": "quadro-masculino-pequeno",
-      "tamanho": "15",
+      "categoria": "15",
       "desenho": "M"
     }
   },

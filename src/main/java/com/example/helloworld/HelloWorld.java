@@ -13,20 +13,6 @@ public class HelloWorld {
     }
 
     private static RuleInferenceEngine getTireInferenceEngine() throws IOException, ParseException {
-//        JSONArray array = ReadJson.read_json("src/main/dataknowledge/freio_database.json");
-//        System.out.println(array);
-//
-//        for(int i = 0; i< array.size(); i++){
-//            JSONObject freio = (JSONObject) array.get(i);
-//            JSONObject atributos = (JSONObject) freio.get("freio");
-//
-//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
-//            Rule rule = new Rule((String) atributos.get("nome"));
-//
-//            rule.addAntecedent(new EqualsClause("modelo", (String) atributos.get("modelo")));
-//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
-//            rie.addRule(rule);
-//        }
 
         JSONArray array = ReadJson.read_json("src/main/dataknowledge/pneu_database.json");
         RuleInferenceEngine rie = new KieRuleInferenceEngine();
@@ -44,44 +30,82 @@ public class HelloWorld {
             rie.addRule(rule);
         }
 
-//        array = ReadJson.read_json("src/main/dataknowledge/quadro_database.json");
-//
-//
-//        for(int i = 0; i< array.size(); i++){
-//            JSONObject quadro = (JSONObject) array.get(i);
-//            JSONObject atributos = (JSONObject) quadro.get("quadro");
-//
-//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
-//            Rule rule = new Rule((String) atributos.get("nome"));
-//
-//            rule.addAntecedent(new EqualsClause("categoria", (String) atributos.get("categoria")));
-//            rule.addAntecedent(new EqualsClause("desenho", (String) atributos.get("desenho")));
-//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
-//            rie.addRule(rule);
-//        }
-//
-//        array = ReadJson.read_json("src/main/dataknowledge/relacao_database.json");
-//
-//
-//        for(int i = 0; i< array.size(); i++){
-//            JSONObject relacao = (JSONObject) array.get(i);
-//            JSONObject atributos = (JSONObject) relacao.get("relacao");
-//
-//            RuleInferenceEngine rie = new KieRuleInferenceEngine();
-//            Rule rule = new Rule((String) atributos.get("nome"));
-//
-//            rule.addAntecedent(new EqualsClause("coroas", (String) atributos.get("coroas")));
-//            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
-//            rie.addRule(rule);
-//        }
+        return rie;
+    }
+
+    private static RuleInferenceEngine getBreakInferenceEngine() throws IOException, ParseException {
+        JSONArray array = ReadJson.read_json("src/main/dataknowledge/freio_database.json");
+        RuleInferenceEngine rie = new KieRuleInferenceEngine();
+
+        for(int i = 0; i< array.size(); i++){
+            JSONObject freio = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) freio.get("freio");
+
+            Rule rule = new Rule((String) atributos.get("nome"));
+
+            rule.addAntecedent(new EqualsClause("modelo", (String) atributos.get("modelo")));
+            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+            rie.addRule(rule);
+        }
+
+        return rie;
+    }
+
+    private static RuleInferenceEngine getFrameInferenceEngine() throws IOException, ParseException {
+        JSONArray array = ReadJson.read_json("src/main/dataknowledge/quadro_database.json");
+        RuleInferenceEngine rie = new KieRuleInferenceEngine();
+
+
+        for(int i = 0; i< array.size(); i++){
+            JSONObject quadro = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) quadro.get("quadro");
+
+            Rule rule = new Rule((String) atributos.get("nome"));
+
+            rule.addAntecedent(new EqualsClause("categoria", (String) atributos.get("categoria")));
+            rule.addAntecedent(new EqualsClause("desenho", (String) atributos.get("desenho")));
+            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+            rie.addRule(rule);
+        }
+
+        return rie;
+    }
+
+    private static RuleInferenceEngine getRelacaoInferenceEngine() throws IOException, ParseException {
+        JSONArray array = ReadJson.read_json("src/main/dataknowledge/relacao_database.json");
+        RuleInferenceEngine rie = new KieRuleInferenceEngine();
+
+        for(int i = 0; i< array.size(); i++){
+            JSONObject relacao = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) relacao.get("relacao");
+
+            Rule rule = new Rule((String) atributos.get("nome"));
+
+            rule.addAntecedent(new EqualsClause("coroas", (String) atributos.get("coroas")));
+            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
+            rie.addRule(rule);
+        }
         return rie;
     }
 
     public static void testForwardChain() throws IOException, ParseException {
-        RuleInferenceEngine rie=getTireInferenceEngine();
+        //RuleInferenceEngine rie = getTireInferenceEngine();
+        //RuleInferenceEngine rie = getBreakInferenceEngine();
+        //RuleInferenceEngine rie = getFrameInferenceEngine();
+        RuleInferenceEngine rie = getRelacaoInferenceEngine();
 
-        rie.addFact(new EqualsClause("categoria", "slick"));
-//        rie.addFact(new EqualsClause("largura", "2.2"));
+        rie.addFact(new EqualsClause("coroas", "3x7"));
+
+//Quadro
+//        rie.addFact(new EqualsClause("categoria", "15"));
+//        rie.addFact(new EqualsClause("desenho", "F"));
+
+//Freio
+//        rie.addFact(new EqualsClause("modelo", "v-brake"));
+
+//Pneu
+//        rie.addFact(new EqualsClause("categoria", "slick"));
+//        rie.addFact(new EqualsClause("largura", "1.5"));
 //        rie.addFact(new EqualsClause("nome", "pneu-misto"));
 
         System.out.println("before inference");
@@ -95,7 +119,7 @@ public class HelloWorld {
         System.out.println();
     }
 
-    public static void testBackwardChain() throws IOException, ParseException {
+    /*public static void testBackwardChain() throws IOException, ParseException {
         RuleInferenceEngine rie=getTireInferenceEngine();
         rie.addFact(new EqualsClause("categoria", "slick"));
         rie.addFact(new EqualsClause("largura", "1.6"));
@@ -108,5 +132,5 @@ public class HelloWorld {
         Clause conclusion=rie.infer("vehicle", unproved_conditions);
 
         System.out.println("Conclusion: "+conclusion);
-    }
+    }*/
 }
