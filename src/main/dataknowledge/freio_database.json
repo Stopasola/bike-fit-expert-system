@@ -1,40 +1,40 @@
 [
   {
     "freio": {
-      "modelo": "v-brake",
-      "nome": "freio-v-brake"
+      "nome": "freio-v-brake",
+      "modelo": "v-brake"
     }
   },
   {
     "freio": {
-      "modelo": "disco-mecanico",
-      "nome": "freio-disco-mecanico"
+      "nome": "freio-disco-mecanico",
+      "modelo": "disco-mecanico"
     }
   },
   {
     "freio": {
-      "modelo": "disco-hidraulico",
-      "nome": "freio-disco-mecanico"
+      "nome": "freio-disco-mecanico",
+      "modelo": "disco-hidraulico"
     }
   },
   {
     "freio": {
-      "modelo": "ferradura",
       "nome": "freio ferradura -shimano claris",
+      "modelo": "ferradura",
       "valor": "entrada"
     }
   },
   {
     "freio": {
-      "modelo": "ferradura",
       "nome": "ferradura  - shimano tiagra",
+      "modelo": "ferradura",
       "valor": "media"
     }
   },
   {
     "freio": {
-      "modelo": "ferradura",
       "nome": "ferradura - shimano ultegra",
+      "modelo": "ferradura",
       "valor": "premium"
     }
   }

@@ -44,6 +44,7 @@ public class HelloWorld {
             Rule rule = new Rule((String) atributos.get("nome"));
 
             rule.addAntecedent(new EqualsClause("modelo", (String) atributos.get("modelo")));
+            rule.addAntecedent(new EqualsClause("valor", (String) atributos.get("valor")));
             rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
             rie.addRule(rule);
         }
@@ -84,6 +85,7 @@ public class HelloWorld {
             rule.addAntecedent(new EqualsClause("coroas", (String) atributos.get("coroas")));
             rule.addAntecedent(new EqualsClause("valor", (String) atributos.get("valor")));
             rule.setConsequent(new EqualsClause("utilizacao", (String) atributos.get("utilizacao")));
+            rule.setConsequent(new EqualsClause("nome", (String) atributos.get("nome")));
             rie.addRule(rule);
         }
         return rie;
@@ -95,8 +97,8 @@ public class HelloWorld {
         RuleInferenceEngine rie = new KieRuleInferenceEngine();
 
         for(int i = 0; i< array.size(); i++){
-            JSONObject material = (JSONObject) array.get(i);
-            JSONObject atributos = (JSONObject) material.get("amortecedor");
+            JSONObject amortecedor = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) amortecedor.get("amortecedor");
 
             Rule rule = new Rule((String) atributos.get("nome"));
 
@@ -135,8 +137,8 @@ public class HelloWorld {
         RuleInferenceEngine rie = new KieRuleInferenceEngine();
 
         for(int i = 0; i< array.size(); i++){
-            JSONObject material = (JSONObject) array.get(i);
-            JSONObject atributos = (JSONObject) material.get("aro");
+            JSONObject aro = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) aro.get("aro");
 
 
             Rule rule = new Rule((String) atributos.get("nome"));
@@ -155,8 +157,8 @@ public class HelloWorld {
         RuleInferenceEngine rie = new KieRuleInferenceEngine();
 
         for(int i = 0; i< array.size(); i++){
-            JSONObject material = (JSONObject) array.get(i);
-            JSONObject atributos = (JSONObject) material.get("selim");
+            JSONObject selim = (JSONObject) array.get(i);
+            JSONObject atributos = (JSONObject) selim.get("selim");
 
 
             Rule rule = new Rule((String) atributos.get("nome"));
@@ -195,6 +197,7 @@ public class HelloWorld {
 
         String categoriavalor = "";
         String categoriabicicleta = "";
+        String amortecedor = "";
 
         // Tipo de quadro
         if(genero.equals("F")){
@@ -275,11 +278,11 @@ public class HelloWorld {
         {
             categoriabicicleta = "cargueira";
         }
-        else if(utilizacao.equals("estrada chao cidade"))
+        else if(utilizacao.equals("cidade"))
         {
             categoriabicicleta = "gravel";
         }
-        else if(utilizacao.equals("estrada chao trilha"))
+        else if(utilizacao.equals("trilha"))
         {
             categoriabicicleta = "mountain bike";
         }
@@ -289,15 +292,44 @@ public class HelloWorld {
         }
 
         // Freio
-
         if(utilizacao.equals("ciclismo de estrada") && categoriavalor.equals("entrada"))
         {
-            riebreak.addFact((new EqualsClause("modelo", "ferradura")));
-            riebreak.addFact((new EqualsClause("valor", "entrada")));
+            riebreak.addFact(new EqualsClause("modelo", "ferradura"));
+            riebreak.addFact(new EqualsClause("valor", "entrada"));
 
-        }else if(utilizacao.equals("ciclismo de estrada") && categoriavalor.equals("media"))
+        }
+        else if(utilizacao.equals("ciclismo de estrada") && categoriavalor.equals("media"))
         {
-            riebreak.addFact((new EqualsClause("modelo", "ferradura")));
+            riebreak.addFact(new EqualsClause("modelo", "ferradura"));
+            riebreak.addFact(new EqualsClause("valor", "media"));
+        }
+        else if(utilizacao.equals("ciclismo de estrada") && categoriavalor.equals("premium"))
+        {
+            riebreak.addFact(new EqualsClause("modelo", "ferradura"));
+            riebreak.addFact(new EqualsClause("valor", "premium"));
+        }
+        else
+        {
+            if(categoriavalor.equals("entrada"))
+            {
+                riebreak.addFact(new EqualsClause("modelo", "v-brake"));
+            }
+            else if(categoriavalor.equals("media"))
+            {
+                riebreak.addFact(new EqualsClause("modelo", "disco-mecanico"));
+            }
+            else if(categoriavalor.equals("premium"))
+            {
+                riebreak.addFact(new EqualsClause("modelo", "disco-hidraulico"));
+            }
+            else if(categoriavalor.equals("competicao entrada"))
+            {
+                riebreak.addFact(new EqualsClause("modelo", "disco-hidraulico"));
+            }
+            else if(categoriavalor.equals("competicao media"))
+            {
+                riebreak.addFact(new EqualsClause("modelo", "disco-hidraulico"));
+            }
         }
 
         // Pneu da bicicleta
@@ -313,11 +345,11 @@ public class HelloWorld {
         {
             rietire.addFact(new EqualsClause("categoria", "misto"));
             rietire.addFact(new EqualsClause("largura", "2.0"));
-        } else if(utilizacao.equals("estrada chao cidade"))
+        } else if(utilizacao.equals("cidade"))
         {
             rietire.addFact(new EqualsClause("categoria", "misto"));
             rietire.addFact(new EqualsClause("largura", "2.2"));
-        } else if(utilizacao.equals("estrada chao trilha"))
+        } else if(utilizacao.equals("trilha"))
         {
             rietire.addFact(new EqualsClause("categoria", "cravado"));
             rietire.addFact(new EqualsClause("largura", "2.5"));
@@ -408,57 +440,225 @@ public class HelloWorld {
             rierelacao.addFact(new EqualsClause("utilizacao", "viagem"));
         }
 
+        // Amortecedor
+        if(categoriavalor.equals("entrada") && utilizacao.equals("trilha"))
+        {
+            riebumper.addFact(new EqualsClause("categoria", "entrada"));
+            riebumper.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else if(categoriavalor.equals("media") && utilizacao.equals("trilha"))
+        {
+            riebumper.addFact(new EqualsClause("categoria", "media"));
+            riebumper.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else if(categoriavalor.equals("premium") && utilizacao.equals("trilha"))
+        {
+            riebumper.addFact(new EqualsClause("categoria", "premium"));
+            riebumper.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else
+        {
+            amortecedor = "nao";
+        }
 
+        // Aro
+        if(utilizacao.equals("passeio cidade"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "passeio cidade"));
+        }
+        else if(utilizacao.equals("viagem"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "longas viagens"));
+        }
+        else if(utilizacao.equals("trabalho"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "trabalho"));
+        }
+        else if(utilizacao.equals("cidade"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "estrada de chao/cidade"));
+        }
+        else if(utilizacao.equals("trilha"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "estrada de chao/trilha"));
+        }
+        else if(utilizacao.equals("ciclismo de estrada"))
+        {
+            rierim.addFact(new EqualsClause("utilizacao", "ciclismo de estrada"));
+        }
+
+        //Selim
+        if(categoriabicicleta.equals("passeio cidade"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Passeio cidade"));
+        }
+        else if(categoriabicicleta.equals("viagem"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Longas Viagens"));
+        }
+        else if(categoriabicicleta.equals("trabalho"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Trabalho"));
+        }
+        else if(utilizacao.equals("cidade"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Estrada de chão/cidade"));
+        }
+        else if(utilizacao.equals("trilha"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Estrada de chão/Trilha"));
+        }
+        else if(utilizacao.equals("ciclismo de estrada"))
+        {
+            rieselim.addFact(new EqualsClause("categoria", "Ciclismo de estrada"));
+        }
 
         // Inferencia Quadro
-
-        System.out.println("before inference");
-        System.out.println(rieframe.getFacts());
-        System.out.println();
+//        System.out.println("before inference");
+//        System.out.println(rieframe.getFacts());
+//        System.out.println();
 
         rieframe.infer(); //forward chain
 
-        System.out.println("after inference");
-        System.out.println(rieframe.getFacts());
-        System.out.println();
+//        System.out.println("after inference");
+//        System.out.println(rieframe.getFacts());
+//        System.out.println();
 
         // Inferencia Pneu
-        System.out.println("before inference");
-        System.out.println(rietire.getFacts());
-        System.out.println();
+//        System.out.println("before inference");
+//        System.out.println(rietire.getFacts());
+//        System.out.println();
 
         rietire.infer(); //forward chain
 
-        System.out.println("after inference");
-        System.out.println(rietire.getFacts());
-        System.out.println();
+//        System.out.println("after inference");
+//        System.out.println(rietire.getFacts());
+//        System.out.println();
 
         // Inferencia Material
-        System.out.println("before inference");
-        System.out.println(riematerial.getFacts());
-        System.out.println();
+//        System.out.println("before inference");
+//        System.out.println(riematerial.getFacts());
+//        System.out.println();
 
         riematerial.infer(); //forward chain
 
-        System.out.println("after inference");
-        System.out.println(riematerial.getFacts());
-        System.out.println();
+//        System.out.println("after inference");
+//        System.out.println(riematerial.getFacts());
+//        System.out.println();
 
         // Inferencia Relacao
-        System.out.println("before inference");
-        System.out.println(rierelacao.getFacts());
-        System.out.println();
+//        System.out.println("before inference");
+//        System.out.println(rierelacao.getFacts());
+//        System.out.println();
 
         rierelacao.infer(); //forward chain
 
-        System.out.println("after inference");
-        System.out.println(rierelacao.getFacts());
-        System.out.println();
+//        System.out.println("after inference");
+//        System.out.println(rierelacao.getFacts());
+//        System.out.println();
 
+        // Inferencia Freio
+//        System.out.println("before inference");
+//        System.out.println(riebreak.getFacts());
+//        System.out.println();
 
+        riebreak.infer(); //forward chain
+
+//        System.out.println("after inference");
+//        System.out.println(riebreak.getFacts());
+//        System.out.println();
+
+        if(!amortecedor.equals("nao"))
+        {
+            // Inferencia Amortecedor
+//            System.out.println("before inference");
+//            System.out.println(riebumper.getFacts());
+//            System.out.println();
+
+            riebumper.infer(); //forward chain
+
+//            System.out.println("after inference");
+//            System.out.println(riebumper.getFacts());
+//            System.out.println();
+        }
+        else
+        {
+            System.out.println("Nao precisa de amortecedor");
+        }
+
+        // Inferencia Aro
+//        System.out.println("before inference");
+//        System.out.println(rierim.getFacts());
+//        System.out.println();
+
+        rierim.infer(); //forward chain
+
+//        System.out.println("after inference");
+//        System.out.println(rierim.getFacts());
+//        System.out.println();
+
+        // Inferencia Selim
+//        System.out.println("before inference");
+//        System.out.println(rieselim.getFacts());
+//        System.out.println();
+
+        rieselim.infer(); //forward chain
+
+//        System.out.println("after inference");
+//        System.out.println(rieselim.getFacts());
+//        System.out.println();
+
+        String pneu = rietire.getFacts().get(rieframe.getFacts().size()-1).toString();
+        String quadro = rieframe.getFacts().get(rieframe.getFacts().size()-1).toString();
+        String material = riematerial.getFacts().get(riematerial.getFacts().size()-1).toString();
+        String relacao = rierelacao.getFacts().get(rierelacao.getFacts().size()-1).toString();
+        String selim = rieselim.getFacts().get(rieselim.getFacts().size()-1).toString();
+        String freio = riebreak.getFacts().get(riebreak.getFacts().size()-1).toString();
+        String aro = rierim.getFacts().get(rierim.getFacts().size()-1).toString();
+        String[] quebra;
+
+        if(!amortecedor.equals("nao"))
+        {
+            amortecedor =  riebumper.getFacts().get(riebumper.getFacts().size()-1).toString();
+            quebra = amortecedor.split("=");
+            amortecedor = quebra[1];
+        }
+        else
+        {
+            amortecedor = "Não precisa de amortecedor";
+        }
+
+        quebra = pneu.split("=");
+        pneu = quebra[1];
+
+        quebra = quadro.split("=");
+        quadro = quebra[1];
+
+        quebra = material.split("=");
+        material = quebra[1];
+
+        quebra = relacao.split("=");
+        relacao = quebra[1];
+
+        quebra = selim.split("=");
+        selim = quebra[1];
+
+        quebra = freio.split("=");
+        freio = quebra[1];
+
+        quebra = aro.split("=");
+        aro = quebra[1];
 
         // Apenas o resultado da inferência
-        System.out.println(rieframe.getFacts().get(rieframe.getFacts().size()-1));
+        System.out.println("Bicicleta adequada para você:");
+        System.out.println("Pneu: " + pneu);
+        System.out.println("Quadro: " + quadro);
+        System.out.println("Material do quadro: " + material);
+        System.out.println("Relação: " + relacao);
+        System.out.println("Selim: " + selim);
+        System.out.println("Amortecedor: " + amortecedor);
+        System.out.println("Freio: " + freio);
+        System.out.println("Aro: " + aro);
 
     }
 
