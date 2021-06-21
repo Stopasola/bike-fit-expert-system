@@ -16,5 +16,26 @@
       "modelo": "disco-hidraulico",
       "nome": "freio-disco-mecanico"
     }
+  },
+  {
+    "freio": {
+      "modelo": "ferradura",
+      "nome": "freio ferradura -shimano claris",
+      "valor": "entrada"
+    }
+  },
+  {
+    "freio": {
+      "modelo": "ferradura",
+      "nome": "ferradura  - shimano tiagra",
+      "valor": "media"
+    }
+  },
+  {
+    "freio": {
+      "modelo": "ferradura",
+      "nome": "ferradura - shimano ultegra",
+      "valor": "premium"
+    }
   }
 ]
