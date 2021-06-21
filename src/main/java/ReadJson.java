@@ -1,5 +1,3 @@
-package com.example.helloworld;
-
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import java.io.FileNotFoundException;
