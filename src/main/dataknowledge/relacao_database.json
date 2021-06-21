@@ -73,7 +73,7 @@
   },
   {
     "relacao": {
-      "nome": "relacao-2x9 - shimano alivio",
+      "nome": "relacao-2x9 - shimano altus",
       "coroas": "2x9",
       "valor": "media",
       "utilizacao": "estrada de chao"
@@ -81,7 +81,7 @@
   },
   {
     "relacao": {
-      "nome": "relacao-2x9 - shimano alivio",
+      "nome": "relacao-2x9 - shimano altus",
       "coroas": "2x9",
       "valor": "media",
       "utilizacao": "cidade"
@@ -89,7 +89,7 @@
   },
   {
     "relacao": {
-      "nome": "relacao-2x9 - shimano alivio",
+      "nome": "relacao-2x9 - shimano altus",
       "coroas": "2x9",
       "valor": "media",
       "utilizacao": "trilha"
@@ -97,9 +97,33 @@
   },
   {
     "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "premium",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "premium",
+      "utilizacao": "cidade"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-2x9 - shimano alivio",
+      "coroas": "2x9",
+      "valor": "premium",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "relacao": {
       "nome": "relacao-1x12 - shimano deore",
       "coroas": "1x12",
-      "valor": "premium",
+      "valor": "competicao entrada",
       "utilizacao": "estrada de chao"
     }
   },
@@ -107,7 +131,7 @@
     "relacao": {
       "nome": "relacao-1x12 - shimano deore",
       "coroas": "1x12",
-      "valor": "premium",
+      "valor": "competicao entrada",
       "utilizacao": "cidade"
     }
   },
@@ -115,7 +139,31 @@
     "relacao": {
       "nome": "relacao-1x12 - shimano deore",
       "coroas": "1x12",
-      "valor": "premium",
+      "valor": "competicao entrada",
+      "utilizacao": "trilha"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano sx",
+      "coroas": "1x12",
+      "valor": "competicao media",
+      "utilizacao": "estrada de chao"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano sx",
+      "coroas": "1x12",
+      "valor": "competicao media",
+      "utilizacao": "cidade"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x12 - shimano sx",
+      "coroas": "1x12",
+      "valor": "competicao media",
       "utilizacao": "trilha"
     }
   },
@@ -164,6 +212,38 @@
       "nome": "relacao-1x11 - shimano Ultegra",
       "coroas": "1x11",
       "valor": "premium",
+      "utilizacao": "viagem"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Dura-Ace",
+      "coroas": "1x11",
+      "valor": "competicao entrada",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Dura-Ace",
+      "coroas": "1x11",
+      "valor": "competicao entrada",
+      "utilizacao": "viagem"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Dura-Ace",
+      "coroas": "1x11",
+      "valor": "competicao media",
+      "utilizacao": "ciclismo de estrada"
+    }
+  },
+  {
+    "relacao": {
+      "nome": "relacao-1x11 - shimano Dura-Ace",
+      "coroas": "1x11",
+      "valor": "competicao media",
       "utilizacao": "viagem"
     }
   }

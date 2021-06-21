@@ -69,6 +69,11 @@ class Groupset {
             rierelacao.addFact(new EqualsClause("valor", "entrada"));
             rierelacao.addFact(new EqualsClause("utilizacao", "estrada de chao"));
         }
+        else if(categoriavalor.equals("entrada") && utilizacao.equals("cidade")){
+            rierelacao.addFact(new EqualsClause("coroas", "3x8"));
+            rierelacao.addFact(new EqualsClause("valor", "entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "cidade"));
+        }
         else if(categoriavalor.equals("entrada") && utilizacao.equals("trilha")){
             rierelacao.addFact(new EqualsClause("coroas", "3x8"));
             rierelacao.addFact(new EqualsClause("valor", "entrada"));
@@ -79,9 +84,59 @@ class Groupset {
             rierelacao.addFact(new EqualsClause("valor", "media"));
             rierelacao.addFact(new EqualsClause("utilizacao", "estrada de chao"));
         }
-        else if(categoriavalor.equals("premium") && utilizacao.equals("trilha")){
-            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+        else if(categoriavalor.equals("media") && utilizacao.equals("cidade")) {
+            rierelacao.addFact(new EqualsClause("coroas", "2x9"));
+            rierelacao.addFact(new EqualsClause("valor", "media"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "cidade"));
+        }
+        else if(categoriavalor.equals("media") && utilizacao.equals("trilha")) {
+            rierelacao.addFact(new EqualsClause("coroas", "2x9"));
+            rierelacao.addFact(new EqualsClause("valor", "media"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else if(categoriavalor.equals("premium") && utilizacao.equals("estrada de chao")){
+            rierelacao.addFact(new EqualsClause("coroas", "2x9"));
             rierelacao.addFact(new EqualsClause("valor", "premium"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "estrada de chao"));
+        }
+        else if(categoriavalor.equals("premium") && utilizacao.equals("cidade")){
+            rierelacao.addFact(new EqualsClause("coroas", "2x9"));
+            rierelacao.addFact(new EqualsClause("valor", "premium"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "cidade"));
+        }
+        else if(categoriavalor.equals("premium") && utilizacao.equals("trilha")){
+            rierelacao.addFact(new EqualsClause("coroas", "2x9"));
+            rierelacao.addFact(new EqualsClause("valor", "premium"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else if(categoriavalor.equals("competicao entrada") && utilizacao.equals("estrada de chao")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "estrada de chao"));
+        }
+        else if(categoriavalor.equals("competicao entrada") && utilizacao.equals("cidade")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "cidade"));
+        }
+        else if(categoriavalor.equals("competicao entrada") && utilizacao.equals("trilha")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "trilha"));
+        }
+        else if(categoriavalor.equals("competicao media") && utilizacao.equals("estrada de chao")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao media"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "estrada de chao"));
+        }
+        else if(categoriavalor.equals("competicao media") && utilizacao.equals("cidade")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao media"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "cidade"));
+        }
+        else if(categoriavalor.equals("competicao media") && utilizacao.equals("trilha")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x12"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao media"));
             rierelacao.addFact(new EqualsClause("utilizacao", "trilha"));
         }
         else if(categoriavalor.equals("entrada") && utilizacao.equals("ciclismo de estrada")){
@@ -112,6 +167,26 @@ class Groupset {
         else if(categoriavalor.equals("premium") && utilizacao.equals("viagem")){
             rierelacao.addFact(new EqualsClause("coroas", "1x11"));
             rierelacao.addFact(new EqualsClause("valor", "premium"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "viagem"));
+        }
+        else if(categoriavalor.equals("competicao entrada") && utilizacao.equals("ciclismo de estrada")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x11"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "ciclismo de estrada"));
+        }
+        else if(categoriavalor.equals("competicao entrada") && utilizacao.equals("viagem")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x11"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao entrada"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "viagem"));
+        }
+        else if(categoriavalor.equals("competicao media") && utilizacao.equals("ciclismo de estrada")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x11"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao media"));
+            rierelacao.addFact(new EqualsClause("utilizacao", "ciclismo de estrada"));
+        }
+        else if(categoriavalor.equals("competicao media") && utilizacao.equals("viagem")){
+            rierelacao.addFact(new EqualsClause("coroas", "1x11"));
+            rierelacao.addFact(new EqualsClause("valor", "competicao media"));
             rierelacao.addFact(new EqualsClause("utilizacao", "viagem"));
         }
         rierelacao.infer(); //forward chain
