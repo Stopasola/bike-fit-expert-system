@@ -30,18 +30,18 @@ class Selim {
         return rie;
     }
 
-    public static String Inference(String utilizacao, String categoriabicicleta) throws IOException, ParseException {
+    public static String Inference(String utilizacao) throws IOException, ParseException {
         RuleInferenceEngine rieselim = getSelimInferenceEngine();
 
-        if(categoriabicicleta.equals("passeio cidade"))
+        if(utilizacao.equals("passeio cidade"))
         {
             rieselim.addFact(new EqualsClause("categoria", "Passeio cidade"));
         }
-        else if(categoriabicicleta.equals("viagem"))
+        else if(utilizacao.equals("viagem"))
         {
             rieselim.addFact(new EqualsClause("categoria", "Longas Viagens"));
         }
-        else if(categoriabicicleta.equals("trabalho"))
+        else if(utilizacao.equals("trabalho"))
         {
             rieselim.addFact(new EqualsClause("categoria", "Trabalho"));
         }

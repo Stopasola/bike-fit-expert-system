@@ -23,7 +23,8 @@ public class Main {
                 System.out.println("Qual é seu genero? [M-m] ou [F-f]");
                 genero = s.nextLine();
             }
-
+            boolean isnumber = false;
+            Float valorteste = null;
             Float altura = null;
 
             do {
@@ -41,11 +42,20 @@ public class Main {
             do {
                 try {
                     System.out.println("Qual é o valor que você investirá?");
-                    valor = Float.parseFloat(s.nextLine());
+                    valorteste = Float.parseFloat(s.nextLine());
+                    isnumber = true;
                 } catch (NumberFormatException e) {
                     System.out.println("Insira um valor adequado. Ex: 2200");
+                    isnumber = false;
                 }
 
+                if (isnumber) {
+                    if (valorteste > 1200) {
+                        valor = valorteste;
+                    }else{
+                        System.out.println("Valor Mínimo para buscas é R$ 1200,00");
+                    }
+                }
             } while (valor == null);
 
             System.out.println("Qual é a utilização que você fará?");
@@ -59,7 +69,7 @@ public class Main {
 
             Integer opcao = null;
             Integer op = null;
-            boolean isnumber = false;
+            isnumber = false;
             String utilizacao = "";
 
             do {
@@ -127,7 +137,7 @@ public class Main {
             RimOutput(Rim.Inference(utilizacao));
 
             //Selim
-            SelimOutput(Selim.Inference(utilizacao, categoriabicicleta));
+            SelimOutput(Selim.Inference(utilizacao));
 
             System.out.println("");
         }

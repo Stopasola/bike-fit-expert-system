@@ -32,8 +32,8 @@ class Frame {
 
     public static String Inference(Float altura, String genero) throws IOException, ParseException {
         RuleInferenceEngine rieframe = getFrameInferenceEngine();
-
-        if(genero.equals("F") || genero.equals("f")){
+        genero = genero.toUpperCase();
+        if(genero.equals("F")){
 
             if( altura >= 1.60 && altura <= 1.65){
                 rieframe.addFact(new EqualsClause("categoria", "15"));
@@ -46,7 +46,7 @@ class Frame {
                 rieframe.addFact(new EqualsClause("desenho", genero));
             }
         }
-        else if(genero.equals("M") || genero.equals("m")){
+        else if(genero.equals("M")){
 
             if( altura >= 1.60 && altura < 1.70){
                 rieframe.addFact(new EqualsClause("categoria", "15"));
