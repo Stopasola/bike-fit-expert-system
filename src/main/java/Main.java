@@ -12,58 +12,125 @@ public class Main {
 
     public static void testForwardChain() throws IOException, ParseException {
 
+        System.out.println("Bicycle Consultant\n");
+        while (true) {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Qual é seu genero? [M-m] ou [F-f]");
+            String genero = s.nextLine();
 
-        Scanner s = new Scanner(System.in);
-        System.out.println("Qual é seu genero?");
-        String genero = s.nextLine();
+            while (!genero.equals("M") && !genero.equals("m") && !genero.equals("F") && !genero.equals("f")) {
+                System.out.println("Insira um valor válido");
+                System.out.println("Qual é seu genero? [M-m] ou [F-f]");
+                genero = s.nextLine();
+            }
 
-        System.out.println("Qual é sua altura?");
-        Float altura = Float.parseFloat(s.nextLine());
+            Float altura = null;
 
-        System.out.println("Qual é o valor que você investirá?");
-        Float valor = Float.parseFloat(s.nextLine());
+            do {
+                try {
+                    System.out.println("Qual é sua altura?");
+                    altura = Float.parseFloat(s.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Insira um valor no formato numero.numero. Ex: 1.70");
+                }
 
-        System.out.println("Qual é a utilização que você fará?");
-        String utilizacao = s.nextLine();
+            } while (altura == null);
+
+            Float valor = null;
+
+            do {
+                try {
+                    System.out.println("Qual é o valor que você investirá?");
+                    valor = Float.parseFloat(s.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Insira um valor adequado. Ex: 2200");
+                }
+
+            } while (valor == null);
+
+            System.out.println("Qual é a utilização que você fará?");
+            System.out.println("1. passeio cidade");
+            System.out.println("2. viagem");
+            System.out.println("3. trabalho");
+            System.out.println("4. cidade");
+            System.out.println("5. trilha");
+            System.out.println("6. ciclismo de estrada");
+            System.out.println("Escolha um valor entre 1-6");
+
+            Integer opcao = null;
+            Integer op = null;
+            boolean isnumber = false;
+            String utilizacao = "";
+
+            do {
+                try {
+                    op = Integer.parseInt(s.nextLine());
+                    isnumber = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Insira um valor adequado");
+                    isnumber = false;
+                }
+                if (isnumber) {
+                    if (op >= 1 && op <= 6) {
+                        opcao = op;
+                    }
+                }
+            } while (opcao == null);
+
+            if (opcao == 1) {
+                utilizacao = "passeio cidade";
+            } else if (opcao == 2) {
+                utilizacao = "viagem";
+            } else if (opcao == 3) {
+                utilizacao = "trabalho";
+            } else if (opcao == 4) {
+                utilizacao = "cidade";
+            } else if (opcao == 5) {
+                utilizacao = "trilha";
+            } else if (opcao == 6) {
+                utilizacao = "ciclismo de estrada";
+            }
 
 
-        /////////////////  Funções de formatação /////////////////
+            /////////////////  Funções de formatação /////////////////
 
-        // Valor investido na bicileta
-        String categoriavalor = InvestedValue(valor);
+            // Valor investido na bicileta
+            String categoriavalor = InvestedValue(valor);
 
-        // Utilizacao da bicicleta
-        String categoriabicicleta = BikeCategory(utilizacao);
+            // Utilizacao da bicicleta
+            String categoriabicicleta = BikeCategory(utilizacao);
 
-        /////////////////  Inferencias /////////////////
+            /////////////////  Inferencias /////////////////
 
-        // Tipo de quadro
-        FrameOutput(Frame.Inference(altura, genero));
+            // Apenas o resultado da inferência
+            System.out.println("\n\nBicicleta adequada para você:");
 
-        // Material do quadro
-        FrameMaterialOutput(FrameMaterial.Inference(categoriavalor));
+            // Tipo de quadro
+            FrameOutput(Frame.Inference(altura, genero));
 
-        // Freio
-        BreakOutput(Break.Inference(utilizacao, categoriavalor));
+            // Material do quadro
+            FrameMaterialOutput(FrameMaterial.Inference(categoriavalor));
 
-        // Pneu da bicicleta
-        TireOutput(Tire.Inference(utilizacao));
+            // Freio
+            BreakOutput(Break.Inference(utilizacao, categoriavalor));
 
-        // Relação
-        GroupsetOutput(Groupset.Inference(utilizacao, categoriavalor));
+            // Pneu da bicicleta
+            TireOutput(Tire.Inference(utilizacao));
 
-        // Amortecedor
-        BumperOutput(Bumper.Inference(utilizacao, categoriavalor));
+            // Relação
+            GroupsetOutput(Groupset.Inference(utilizacao, categoriavalor));
 
-        // Aro
-        RimOutput(Rim.Inference(utilizacao));
+            // Amortecedor
+            BumperOutput(Bumper.Inference(utilizacao, categoriavalor));
 
-        //Selim
-        SelimOutput(Selim.Inference(utilizacao, categoriabicicleta));
+            // Aro
+            RimOutput(Rim.Inference(utilizacao));
 
-        // Apenas o resultado da inferência
-        System.out.println("Bicicleta adequada para você:");
+            //Selim
+            SelimOutput(Selim.Inference(utilizacao, categoriabicicleta));
 
+            System.out.println("");
+        }
     }
 
     private static void RimOutput(String rim) {
