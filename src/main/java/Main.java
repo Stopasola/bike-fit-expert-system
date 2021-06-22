@@ -3,6 +3,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -113,7 +114,7 @@ public class Main {
             /////////////////  Inferencias /////////////////
 
             // Apenas o resultado da inferência
-            System.out.println("\n\nBicicleta adequada para você:");
+            System.out.println("\n\n\n-----Bicicleta adequada para você:-----");
 
             // Tipo de quadro
             FrameOutput(Frame.Inference(altura, genero));
@@ -130,14 +131,18 @@ public class Main {
             // Relação
             GroupsetOutput(Groupset.Inference(utilizacao, categoriavalor));
 
-            // Amortecedor
-            BumperOutput(Bumper.Inference(utilizacao, categoriavalor));
-
             // Aro
             RimOutput(Rim.Inference(utilizacao));
 
             //Selim
             SelimOutput(Selim.Inference(utilizacao));
+
+            // Amortecedor
+            BumperOutput(Bumper.Inference(utilizacao, categoriavalor));
+
+            System.out.println("Quadro pequeno: 15");
+            System.out.println("Quadro medio..: 17");
+            System.out.println("Quadro grande.: 19");
 
             System.out.println("");
         }
@@ -145,38 +150,52 @@ public class Main {
 
     private static void RimOutput(String rim) {
         rim = rim.split("=")[1];
-        System.out.println("Aro: " + rim);
+        rim = rim.trim();
+        System.out.println("Aro...............: " + rim);
     }
 
     private static void BreakOutput(String breaks) {
         breaks = breaks.split("=")[1];
-        System.out.println("Freio: " + breaks);
-
+        breaks = breaks.trim();
+        breaks = breaks.substring(0, 1).toUpperCase() + breaks.substring(1);
+        System.out.println("Freio.............: " + breaks);
     }
 
     private static void SelimOutput(String selim) {
         selim = selim.split("=")[1];
-        System.out.println("Selim: " + selim);
+        selim = selim.trim();
+        selim = selim.substring(0, 1).toUpperCase() + selim.substring(1);
+        System.out.println("Selim.............: " + selim);
     }
 
     private static void GroupsetOutput(String groupset) {
         groupset = groupset.split("=")[1];
-        System.out.println("Relação: " + groupset);
+        groupset = groupset.trim();
+        groupset = groupset.substring(0, 1).toUpperCase() + groupset.substring(1);
+        System.out.println("Relação...........: " + groupset);
     }
 
     private static void FrameMaterialOutput(String material) {
         material = material.split("=")[1];
+        material = material.trim();
+        material = material.substring(0, 1).toUpperCase() + material.substring(1);
         System.out.println("Material do quadro: " + material);
     }
 
     private static void FrameOutput(String frame) {
         frame = frame.split("=")[1];
-        System.out.println("Quadro: " + frame);
+        frame = frame.trim();
+        frame = frame.replace("-", " ");
+        frame = frame.substring(0, 1).toUpperCase() + frame.substring(1);
+
+        System.out.println("Quadro............: " + frame);
     }
 
     private static void TireOutput(String tire) {
         tire = tire.split("=")[1];
-        System.out.println("Pneu: " + tire);
+        tire = tire.trim();
+        tire = tire.substring(0, 1).toUpperCase() + tire.substring(1);
+        System.out.println("Pneu..............: " + tire);
     }
 
     private static void BumperOutput(String bumper) {
@@ -184,7 +203,9 @@ public class Main {
             System.out.println("Não precisa de amortecedor");
         }else {
             bumper = bumper.split("=")[1];
-            System.out.println("Amortecedor: " + bumper);
+            bumper = bumper.trim();
+            bumper = bumper.substring(0, 1).toUpperCase() + bumper.substring(1);
+            System.out.println("Amortecedor.......: " + bumper);
         }
     }
 
