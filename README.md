@@ -1,6 +1,6 @@
 #   BikeFit Expert System
 
-![image](https://img.shields.io/github/languages/top/stopasola/minimum-cost-graph)
+![image](https://img.shields.io/github/languages/top/stopasola/bike-fit-expert-system)
 
 ## Introdução
 
